@@ -4,7 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @property string $email
+ * @property Website $website
+ */
 class Subscription extends Model
 {
     use HasFactory;
@@ -13,4 +18,9 @@ class Subscription extends Model
         'email',
         'website_id',
     ];
+
+    public function website(): BelongsTo
+    {
+        return $this->belongsTo(Website::class);
+    }
 }
