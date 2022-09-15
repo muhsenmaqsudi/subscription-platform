@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\StorePostController;
+use App\Http\Controllers\Api\StoreWebsiteSubscriptionController;
 use App\Http\Controllers\Api\WebsiteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,4 +28,5 @@ Route::post('/auth/login', [AuthController::class, 'login']);
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::apiResource('websites', WebsiteController::class)->only(['index', 'store']);
     Route::post('posts', StorePostController::class);
+    Route::post('subscriptions', StoreWebsiteSubscriptionController::class);
 });
