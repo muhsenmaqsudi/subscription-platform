@@ -3,7 +3,9 @@
 namespace App\Listeners;
 
 use App\Events\NewPostPublished;
-use App\Mail\PostCreated;
+use App\Jobs\SendSubscriberEmail;
+use App\Mail\PostCreatedMail;
+use App\Models\Delivery;
 use App\Models\Subscription;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -33,7 +35,7 @@ class NotifySubscribedUsers implements ShouldQueue
         $subscriptions = $event->post->website->subscriptions();
 
         $subscriptions->each(function (Subscription $subscription) use ($event) {
-            Mail::to($subscription->email)->send(new PostCreated($event->post));
+            SendSubscriberEmail::dispatch($subscription, $event->post);
         });
     }
 }

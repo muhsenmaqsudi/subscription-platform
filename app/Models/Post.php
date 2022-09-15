@@ -32,4 +32,9 @@ class Post extends Model
     {
         return $this->belongsTo(Website::class);
     }
+
+    public function isDeliveredToSubscriber(Subscription $subscription): bool
+    {
+        return $subscription->post_id == $this->id;
+    }
 }

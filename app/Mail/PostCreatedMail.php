@@ -4,11 +4,10 @@ namespace App\Mail;
 
 use App\Models\Post;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class PostCreated extends Mailable
+class PostCreatedMail extends Mailable
 {
     use Queueable, SerializesModels;
 
