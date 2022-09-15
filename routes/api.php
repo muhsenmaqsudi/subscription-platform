@@ -24,5 +24,5 @@ Route::post('/auth/register', [AuthController::class, 'register']);
 Route::post('/auth/login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
-    Route::post('websites', [WebsiteController::class, 'store']);
+    Route::apiResource('websites', WebsiteController::class)->only(['index', 'store']);
 });

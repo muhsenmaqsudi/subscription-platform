@@ -13,7 +13,7 @@ class CreateWebsiteAction extends Action
     {
         return Website::query()->create([
             'name' => $request->name(),
-            'url' => $request->url(),
+            'url' => $request->websiteUrl(),
             'owner_id' => auth()->id()
         ]);
     }
