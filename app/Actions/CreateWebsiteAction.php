@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CreateWebsiteAction extends Action
 {
-    public function handle(CreateWebsiteRequest $request): Model|User
+    public function handle(CreateWebsiteRequest $request): Model|Website
     {
         return Website::query()->create([
             'name' => $request->name(),
