@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('websites', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
-            $table->string('url', 100);
+            $table->string('url', 100)->unique();
+            $table->foreignId('owner_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }
