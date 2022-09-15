@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreSubscriptionRequest extends FormRequest
+class StoreWebsiteSubscriptionRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -18,7 +18,7 @@ class StoreSubscriptionRequest extends FormRequest
             'website_id' => 'required|exists:websites,id'
         ];
     }
-    
+
     public function email(): string
     {
         return $this->input('email');

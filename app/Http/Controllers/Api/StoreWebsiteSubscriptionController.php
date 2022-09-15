@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Actions\CreateWebsiteSubscriptionAction;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreSubscriptionRequest;
+use App\Http\Requests\StoreWebsiteSubscriptionRequest;
 
 class StoreWebsiteSubscriptionController extends Controller
 {
-    public function __invoke(StoreSubscriptionRequest $request)
+    public function __invoke(StoreWebsiteSubscriptionRequest $request)
     {
         try {
             $subscription = CreateWebsiteSubscriptionAction::make()->handle($request);
